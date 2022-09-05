@@ -157,14 +157,6 @@ bankuser.withdraw(1000)
 bankuser.show_balance()
 # '''
 
-""" Driver Code for Task 5"""
-'''
-Bonus Task 5
-Add an instance attribute on the BankUser class called on_hold and initialize it to False. 
-Add a method that can be called to toggle this on_hold class to the opposite of its current Boolean value. (So if it is True, flip it to False, and if it is False, flip it to True.)
-Add a check for each of the withdraw(), deposit(), transfer_money(), and withdraw_money() methods thus that if the on_hold attribute for any user involved in the transaction is True, the transaction is rejected with an appropriate failure message.
-'''
-
 '''
 bankuser1 = BankUser("Moon",1324,"password")
 bankuser2 = BankUser("Pearl",1234,"password")
