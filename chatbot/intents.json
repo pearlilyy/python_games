@@ -1,0 +1,98 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "How are you",
+                "Is anyone there?",
+                "Hello",
+                "Good day.",
+                "Whats up"
+            ],
+            "responses": [
+                "Hello!",
+                "Good to see you again!",
+                "Hi there, how can I help?"
+            ],
+            "content_set": ""
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "cya",
+                "See you later",
+                "Goodbye",
+                "I am Leaving",
+                "Have a good day"
+            ],
+            "responses": [
+                "Goodbye!",
+                "Talk to you later"
+            ],
+            "content_set": ""
+        },
+        {
+            "tag": "age",
+            "patterns": [
+                "how old",
+                "how old are you",
+                "what is your age",
+                "age?"
+            ],
+            "responses": [
+                "I am 19 years old!",
+                "18 years young"
+            ],
+            "content_set": ""
+        },
+        {
+            "tag": "name",
+            "patterns": [
+                "what is your name",
+                "what should I call you",
+                "what's your name?"
+            ],
+            "responses": [
+                "You can call me Pearl!",
+                "I am Pearl"
+            ],
+            "content_set": ""
+        },
+        {
+            "tag": "shop",
+            "patterns": [
+                "I'd like to buy something",
+                "what's on the menu",
+                "what do you recommend"
+            ],
+            "responses": [
+                "what about cookies?",
+                "cookies are on the menu"
+            ],
+            "content_set": ""
+        },
+        {
+            "tag": "hours",
+            "patterns": [
+                "when are you open",
+                "open time"
+            ],
+            "responses": [
+                "we are open 7am to 4pm Monday-Friday!"
+            ],
+            "content_set": ""
+        },
+        {
+            "tag": "buy",
+            "patterns": [
+                "can I buy something",
+                "how much is the cookies?"
+            ],
+            "responses": [
+                "cookies are $2 each"
+            ],
+            "content_set": ""
+        }
+    ]
+}
