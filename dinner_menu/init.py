@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from flask import Flask, render_template
 from random import sample
+import math
 
-app = Flask(__name__)  # app 이라는 이름을 가진 Flask 클래스의 객체 생성
+app = Flask(__name__)  # create an object 'app' of Flask class
 
 
 # @app.route('/')
@@ -16,7 +17,7 @@ def hello():
 
 @app.route('/hello')
 def hello_hello():
-    return 'HELLO HELLO BABE!!'
+    return 'HELLO HELLO This is for you to choose your dinner menu! Enjoy!'
 
 
 @app.route('/greeting/<string:name>')
@@ -30,19 +31,37 @@ def cube(num):
     return f'The cube of {num} is {result}'
 
 
-@app.route('/dinner/<int:people>')
-def dinner(people):
-    menu = ['steak', 'chicken', 'pizza', 'hamburger', 'Jaeyuk-bokkeum', 'pasta',
+@app.route('/trigonometric/cos/<string:num>')
+def cosine(num):
+    result = math.cos(int(num))
+    return f'The cos({num}) is {result}'
+
+
+@app.route('/trigonometric/sin/<string:num>')
+def sine(num):
+    result = math.sin(int(num))
+    return f'The sin({num}) is {result}'
+
+
+@app.route('/trigonometric/tan/<string:num>')
+def tangent(num):
+    result = math.tan(int(num))
+    return f'The tan({num}) is {result}'
+
+
+@app.route('/dinner/<int:ran>')
+def dinner(ran):
+    menu = ['steak', 'baked chicken', 'pizza', 'hamburger', 'Jaeyuk-bokkeum', 'pasta',
             'pork belly', 'K-BBQ', 'pork ribs', 'black noodles', 'ramen', 'salmon', 'stew', 'HUs', 'clamchawder']
-    return f'{sample(menu, people)}'
+    return f'{sample(menu, ran)}'
 
 
-@app.route('/show')
+@app.route('/dinner/show')
 def show():
-    menu = ['steak.jpg', 'chicken.jpg', 'pizza.jpg', 'hamburger.jpg', 'Jaeyuk-bokkeum.jpg', 'pasta.jpg',
-            'pork-belly.jpg', 'K-BBQ.jpg', 'pork-ribs.jpg', 'black-noodles.jpg', 'ramen.jpg', 'salmon.jpg', 'stew.jpg', 'HUs.jpg', 'clamchawder.jpg']
-    pickme = ''.join(sample(menu, 1))
-    return render_template('index.html', food_img=pickme)
+    menu = ['steak.jpeg', 'baked-chicken.webp', 'pizza.webp', 'hamburger.webp', 'Jaeyuk-bokkeum.jpeg', 'pasta.jpeg',
+            'pork-belly.jpeg', 'k-bbq.jpeg', 'pork-ribs.webp', 'black-noodles.jpeg', 'ramen.jpeg', 'salmon.jpeg', 'stew.webp', 'hus.webp', 'clamchawder.jpeg']
+    pickone = ''.join(sample(menu, 1))
+    return render_template('dinner.html', food_img=pickone)
 
 
 if __name__ == "__main__":

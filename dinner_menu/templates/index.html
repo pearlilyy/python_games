@@ -3,12 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>show</title>
+    <title>index</title>
 </head>
 
 <body>
-    HELLO FLASK!
-    <img src="{{ url_for('static', filename=food_img) }}">
+    <h2>HELLO THERE!</h2>
+    <div>
+        <li>Math?
+            <ul>
+                <a href="{{ url_for('cosine', num=0) }}">Cosine</a>
+            </ul>
+            <ul><a href="{{ url_for('sine', num=0) }}">Sine</a></ul>
+            <ul><a href="{{ url_for('tangent', num=0) }}">Tangent</a></ul>
+        </li>
+        <li>Dinner Menu?
+            <ul><a href="{{ url_for('dinner', ran=1) }}">Random</a></ul>
+            <ul><a href="{{ url_for('show') }}">Random Picture</a></ul>
+        </li>
+        <li>TBD</li>
+    </div>
+
 </body>
 
 </html>
