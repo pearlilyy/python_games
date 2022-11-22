@@ -9,20 +9,40 @@
 <body>
     <h2>HELLO THERE!</h2>
     <div>
+        <br>
         <li>Math?
             <ul>
-                <a href="{{ url_for('cosine', num=0) }}">Cosine</a>
+                <form action="{{ url_for('cosine') }}" method="post" name="cos">
+                    <b>Cos</b>
+                    <input type="number" name="cosval" style="width: 30px;">
+                    <input type="submit" value="calculate">
+                </form>
             </ul>
-            <ul><a href="{{ url_for('sine', num=0) }}">Sine</a></ul>
-            <ul><a href="{{ url_for('tangent', num=0) }}">Tangent</a></ul>
+            <ul>
+                <form action="{{ url_for('sine') }}" method="post" name="sin">
+                    <b>Sin</b>
+                    <input type="number" name="sinval" style="width: 30px;">
+                    <input type="submit" value="calculate">
+                </form>
+            </ul>
+            <ul>
+                <form action="{{ url_for('tangent') }}" method="post" name="tan">
+                    <b>Tan</b>
+                    <input type="number" name="tanval" style="width: 30px;">
+                    <input type="submit" value="calculate">
+                </form>
+            </ul>
         </li>
+        <br>
         <li>Dinner Menu?
             <ul><a href="{{ url_for('dinner', ran=1) }}">Random</a></ul>
             <ul><a href="{{ url_for('show') }}">Random Picture</a></ul>
         </li>
-        <li>TBD</li>
+        <br>
+        <li>TBD
+            <ul></ul>
+        </li>
     </div>
-
 </body>
 
 </html>

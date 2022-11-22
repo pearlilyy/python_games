@@ -1,14 +1,10 @@
 from django.shortcuts import render
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from random import sample
 import math
 
 app = Flask(__name__)  # create an object 'app' of Flask class
 
-
-# @app.route('/')
-# def hello_world():
-#     return 'Hello, Pearl! Enjoy!'
 
 @app.route('/')
 def hello():
@@ -31,22 +27,25 @@ def cube(num):
     return f'The cube of {num} is {result}'
 
 
-@app.route('/trigonometric/cos/<string:num>')
-def cosine(num):
-    result = math.cos(int(num))
-    return f'The cos({num}) is {result}'
+@app.route('/trigonometric/cos', methods=['post'])
+def cosine():
+    cosval = request.form['cosval']
+    cosres = math.cos(int(cosval))
+    return render_template('calculator.html', name="cos", value=cosval, result=cosres)
 
 
-@app.route('/trigonometric/sin/<string:num>')
-def sine(num):
-    result = math.sin(int(num))
-    return f'The sin({num}) is {result}'
+@app.route('/trigonometric/sin', methods=['post'])
+def sine():
+    sinval = request.form['sinval']
+    sinres = math.sin(int(sinval))
+    return render_template('calculator.html', name="sin", value=sinval, result=sinres)
 
 
-@app.route('/trigonometric/tan/<string:num>')
-def tangent(num):
-    result = math.tan(int(num))
-    return f'The tan({num}) is {result}'
+@app.route('/trigonometric/tan', methods=['post'])
+def tangent():
+    tanval = request.form['tanval']
+    tanres = math.tan(int(tanval))
+    return render_template('calculator.html', name="tan", value=tanval, result=tanres)
 
 
 @app.route('/dinner/<int:ran>')
@@ -60,9 +59,9 @@ def dinner(ran):
 def show():
     menu = ['steak.jpeg', 'baked-chicken.webp', 'pizza.webp', 'hamburger.webp', 'Jaeyuk-bokkeum.jpeg', 'pasta.jpeg',
             'pork-belly.jpeg', 'k-bbq.jpeg', 'pork-ribs.webp', 'black-noodles.jpeg', 'ramen.jpeg', 'salmon.jpeg', 'stew.webp', 'hus.webp', 'clamchawder.jpeg']
-    pickone = ''.join(sample(menu, 1))
-    return render_template('dinner.html', food_img=pickone)
+    picked_menu = ''.join(sample(menu, 1))
+    return render_template('dinner.html', food_img=picked_menu)
 
 
 if __name__ == "__main__":
-    app.run(debug=1)  # 객체의 run함수를 이용하여 로컬 서버에서 앱 실행
+    app.run(debug=1)
